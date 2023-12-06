@@ -2,7 +2,9 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
-export const SearchBar = () => {
+
+// eslint-disable-next-line react/prop-types
+export const SearchBar = ({setResults}) => {
   const [input, setInput] = useState("");
   const fetchData = (value) => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -11,7 +13,7 @@ export const SearchBar = () => {
         const results = json.filter((user) => {
           return value && user &&  user.name.toLowercase().includes(value)
         })
-        console.log(results)
+        setResults(results)
       });
   };
 
