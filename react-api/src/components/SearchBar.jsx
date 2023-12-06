@@ -1,19 +1,25 @@
-// import React from 'react'
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+
 import "./SearchBar.css";
 
-// eslint-disable-next-line react/prop-types
-export const SearchBar = ({setResults}) => {
+export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
+
   const fetchData = (value) => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((user) => {
-          return value && user &&  user.name.toLowercase().includes(value)
-        })
-        setResults(results)
+          return (
+            value &&
+            user &&
+            user.name &&
+            user.name.toLowerCase().includes(value)
+          );
+        });
+        setResults(results);
       });
   };
 
@@ -21,6 +27,7 @@ export const SearchBar = ({setResults}) => {
     setInput(value);
     fetchData(value);
   };
+
   return (
     <div className="input-wrapper">
       <FaSearch id="search-icon" />

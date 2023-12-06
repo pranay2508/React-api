@@ -1,9 +1,13 @@
-// import React from 'react'
-import "./Search.css";
-export const Search = ({result}) => {
+/* eslint-disable react/prop-types */
+import "./SearchResult.css";
+
+export const SearchResult = ({ result }) => {
   return (
-    
-  <div className="search-result" onClick={(e) => alert("You clicked on ${result}")}>{result.name}</div>
-    
-  )
-}
+    <div
+      className="search-result"
+      onClick={(e) => alert(`You selected ${result}!`)}
+    >
+      {result}
+    </div>
+  );
+};
