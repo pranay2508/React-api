@@ -11,3 +11,4 @@ export const SearchResult = ({ result }) => {
     </div>
   );
 };
+//error in file
