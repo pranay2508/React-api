@@ -12,3 +12,4 @@ export const SearchResult = ({ result }) => {
   );
 };
 //error in file
+//see
